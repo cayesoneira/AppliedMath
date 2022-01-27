@@ -1,0 +1,8 @@
+function g(z) result (res)
+implicit none
+real,intent(in)::z
+real::res
+
+res=2*z-20
+
+end function g
