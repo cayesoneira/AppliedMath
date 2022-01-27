@@ -1,8 +1,0 @@
-function f(z) result (res)
-implicit none
-real,intent(in)::z
-real::res
-
-res=cos(z)
-
-end function f
