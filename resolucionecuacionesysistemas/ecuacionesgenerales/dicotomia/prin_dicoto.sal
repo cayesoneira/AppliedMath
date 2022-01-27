@@ -1,0 +1,11 @@
+ Extremo izquierdo del intervalo.
+  -1.00000000    
+ Extremo derecho del intervalo.
+   5.00000000    
+ Delta de parada: distancia de F(x0) al 0.
+   1.00000005E-03
+ Épsilon: distancia de x0 a la raíz.
+   9.99999975E-06
+ La aproximación de la raíz es   1.00097656    
+ Se detuvo por acercamiento de x0 a la raíz.
+ El residuo es  -6.83498383E-03
