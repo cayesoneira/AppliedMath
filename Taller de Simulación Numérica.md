@@ -15,3 +15,4 @@
 - Matlab se lleva mal con la memoria dinámica: es mejor que los vectores se declaren directamente con su dimensión. Lo otro podría causar que la memoria deba estar realojándose, lo cual ralentiza el proceso.
 - la matemática computacional tiene dos límites: el matemático (h's pequeños deben usarse) y el computacional (h's más grandes que el eps de la máquina); hay un intervalo para el h con el que debemos trabajar.
 - Concepto de *test académico*: eufemismo elegante para decir *ejercicio*
+- Método de elementos finitos >> Método de diferencias finitas >> Métodos para problemas de valor inicial >> Runge Kutta's
