@@ -8,7 +8,7 @@
 - `contour` hace las curvas de nivel; `contourf` las *rellena* (fill)
 - `repmat`: *repite un vector para hacer una matriz*
 - `trapz` es aplicar la regla del trapecio dando un vector de abscisas y otro de ordenadas.
-- `orden(F, bc, sol, @normaInf, 'Orden de convergencia en norma L^\infty', 1.9, 2.1)`: esto es un ejemplo de mi *function* que calcula el orden. Lo llamativo es que uno de los argumentos de mi *function* es otra *function*, lo que hay que hacer es poner un `@` para convertirlo en una **función anónima**. Si el argumento es directamente una función anónima (por ejemplo declarada tipo `f=@(x) x^2`) entonces no hace falta poner el `@` cuando se usa como argumento.
+- `orden(F, bc, sol, @normaInf, 'Orden de convergencia en norma L^\infty', 1.9, 2.1)`: esto es un ejemplo de mi *function* que calcula el orden. Lo llamativo es que uno de los argumentos de mi *function* es otra *function*, lo que hay que hacer es poner un `@` para convertirla en una **función anónima**. Si el argumento es directamente una función anónima (por ejemplo declarada tipo `f=@(x) x^2`) entonces no hace falta poner el `@` cuando se usa como argumento.
 ---
 ### Ideas/comentarios:
 
