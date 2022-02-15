@@ -28,3 +28,4 @@
 - La iteración funcional se puede aplicar también a EDs considerando un operador que incluya las acciones de *derivar*, entre otras operaciones. El objetivo de la iteración funcional siempre ha sido escribir la solución como un punto fijo de una aplicación. El tema 4 hace un interesante ejercicio sobre estas ideas.
 - En el núcleo del algoritmo originario de Deep Learning se encuentra un algoritmo de Newton, esto es, una aproximación de un problema por otro problema lineal.
 - ¿Por qué ponemos un *or* (||) en lugar de un *and* (&&) en las condiciones de Tolerancia del Residuo y Tolerancia en la Abscisa? Es decir,`if ydif < nl.tol || Fres < nl.tol`. Pues porque si la función es muy muy muy *vaso* entonces converge rápido en la ordenada pero en la abscisa quizá cuando converja el residuo en la ordenada ya sea del orden del épsilon de la máquina.
+- 
