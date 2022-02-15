@@ -9,6 +9,8 @@
 - `repmat`: *repite un vector para hacer una matriz*
 - `trapz` es aplicar la regla del trapecio dando un vector de abscisas y otro de ordenadas.
 - `orden(F, bc, sol, @normaInf, 'Orden de convergencia en norma L^\infty', 1.9, 2.1)`: esto es un ejemplo de mi *function* que calcula el orden. Lo llamativo es que uno de los argumentos de mi *function* es otra *function*, lo que hay que hacer es poner un `@` para convertirla en una **función anónima**. Si el argumento es directamente una función anónima (por ejemplo declarada tipo `f=@(x) x^2`) entonces no hace falta poner el `@` cuando se usa como argumento.
+- Formatos de número en `disp`: `disp([' Dx = ' num2str(dx,'%4.3f')])` dice con el `%4.3f` que quiere un *float* con ciertos decimales, etc.
+- 
 ---
 ### Ideas/comentarios:
 
@@ -24,4 +26,9 @@
 - Evolutivo = No estacionario.
 - El numérico aporta intuición sobre qué temas teóricos pueden tener solución o no (temas de existencia y unicidad, etc.) y si perder el tiempo en ellos.
 - La iteración funcional se puede aplicar también a EDs considerando un operador que incluya las acciones de *derivar*, entre otras operaciones. El objetivo de la iteración funcional siempre ha sido escribir la solución como un punto fijo de una aplicación. El tema 4 hace un interesante ejercicio sobre estas ideas.
-- 
+- En el núcleo del algoritmo originario de Deep Learning se encuentra un algoritmo de Newton, esto es, una aproximación de un problema por otro problema lineal.
+- ¿Por qué ponemos un *o* (||) en lugar de un *y* (&&) en las condiciones de Tolerancia del Residuo y Tolerancia en la Abscisa? 
+  `if ydif < nl.tol || Fres < nl.tol
+    return
+  end`
+  Pues porque si la función es muy muy muy *vaso* entonces converge rápido en la ordenada pero en la abscisa quizá cuando converja el residuo en la ordenada ya sea del orden del épsilon de la máquina.
