@@ -27,5 +27,5 @@
 - El numérico aporta intuición sobre qué temas teóricos pueden tener solución o no (temas de existencia y unicidad, etc.) y si perder el tiempo en ellos.
 - La iteración funcional se puede aplicar también a EDs considerando un operador que incluya las acciones de *derivar*, entre otras operaciones. El objetivo de la iteración funcional siempre ha sido escribir la solución como un punto fijo de una aplicación. El tema 4 hace un interesante ejercicio sobre estas ideas.
 - En el núcleo del algoritmo originario de Deep Learning se encuentra un algoritmo de Newton, esto es, una aproximación de un problema por otro problema lineal.
-- ¿Por qué ponemos un *o* (||) en lugar de un *y* (&&) en las condiciones de Tolerancia del Residuo y Tolerancia en la Abscisa? >`if ydif < nl.tol || Fres < nl.tol`
+- ¿Por qué ponemos un *o* (||) en lugar de un *y* (&&) en las condiciones de Tolerancia del Residuo y Tolerancia en la Abscisa? > `if ydif < nl.tol || Fres < nl.tol`
 Pues porque si la función es muy muy muy *vaso* entonces converge rápido en la ordenada pero en la abscisa quizá cuando converja el residuo en la ordenada ya sea del orden del épsilon de la máquina.
