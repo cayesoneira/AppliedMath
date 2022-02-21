@@ -34,4 +34,5 @@
 - Hay problemas donde la información que se da en la ecuación diferencial es la condición final, no siempre debe ser necesariamente la condición inicial. El hecho es dar tanta información en la variable i-ésima como grados tiene la derivada de dicha variable (i.e. y'' => 2 cond. de contorno).
 - La primera vez que tratamos de resolver un problema evolutivo usamos el *método de Euler implícito* para la variable t y *diferencias finitas* para la variable x.
 - Para las derivadas primera y segunda hay distintas aproximaciones: podemos hacerlo en i+1 e i, en i-1 e i (de primer orden, lo primero que se ve) o en i-1, i e i+1 (esto son aproximaciones de segundo orden: i-1 e i+1 para la derivada).
+- Implementar diferencias finitas hace posible escribir el problema como una ecuación en diferencias (i.e. una ecuación que involucra y_i-1, y_i, y_i+1,, etc.) cuya resolución viene de resolver un sistema matricial (pues al final tenemos un conjunto de ecuaciones lineales).
 - 
