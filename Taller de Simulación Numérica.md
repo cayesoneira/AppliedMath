@@ -10,7 +10,8 @@
 - `trapz` es aplicar la regla del trapecio dando un vector de abscisas y otro de ordenadas.
 - `orden(F, bc, sol, @normaInf, 'Orden de convergencia en norma L^\infty', 1.9, 2.1)`: esto es un ejemplo de mi *function* que calcula el orden. Lo llamativo es que uno de los argumentos de mi *function* es otra *function*, lo que hay que hacer es poner un `@` para convertirla en una **función anónima**. Si el argumento es directamente una función anónima (por ejemplo declarada tipo `f=@(x) x^2`) entonces no hace falta poner el `@` cuando se usa como argumento.
 - Formatos de número en `disp`: `disp([' Dx = ' num2str(dx,'%4.3f')])` dice con el `%4.3f` que quiere un *float* con ciertos decimales, etc.
-- 
+- Muy interesante la `struct`: una especie de tabla donde pueden introducirse funciones, etc. a las que luego te refieres por etiquetas. Muy potente y útil: se puede usar como argumento de una `function`.
+- `nn = [nn norm(nl.yk)]`: básicamente esto es *alargar un vector*.
 ---
 ### Ideas/comentarios:
 
@@ -35,4 +36,4 @@
 - La primera vez que tratamos de resolver un problema evolutivo usamos el *método de Euler implícito* para la variable t y *diferencias finitas* para la variable x.
 - Para las derivadas primera y segunda hay distintas aproximaciones: podemos hacerlo en i+1 e i, en i-1 e i (de primer orden, lo primero que se ve) o en i-1, i e i+1 (esto son aproximaciones de segundo orden: i-1 e i+1 para la derivada).
 - Implementar diferencias finitas hace posible escribir el problema como una ecuación en diferencias (i.e. una ecuación que involucra y_i-1, y_i, y_i+1,, etc.) cuya resolución viene de resolver un sistema matricial (pues al final tenemos un conjunto de ecuaciones lineales).
-- 
+- Muy interesante este
