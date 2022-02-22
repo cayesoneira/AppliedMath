@@ -12,6 +12,10 @@
 - Formatos de número en `disp`: `disp([' Dx = ' num2str(dx,'%4.3f')])` dice con el `%4.3f` que quiere un *float* con ciertos decimales, etc.
 - Muy interesante la `struct`: una especie de tabla donde pueden introducirse funciones, etc. a las que luego te refieres por etiquetas. Muy potente y útil: se puede usar como argumento de una `function`.
 - `nn = [nn norm(nl.yk)]`: básicamente esto es *alargar un vector*.
+- Empezamos declarando la función anónima `sol = @(x) exp(x) + cos(x)`, ahora avisamos que *x* es simbólica: `syms x`, acto seguido, sustituyendo en la función anónima la variable simbólica lo que tenemos es precisamente una función simbólica que se puede derivar simbólicamente: `diff(sol(x),x)`, ahora convertimos esta función simbólica en una función anónima que denotamos como *dsol*: `dsol = matlabFunction(diff(sol(x),x))`. Ya podemos crear un vector de ordenadas simplemente haciendo `ye = sol(xh)`.
+- Cuando ponemos un `disp` o un `error` lo que ponemos en principio es `error('El algoritmo no converge en iteraciones.')` o quizá `error(nl.maxit)`, es decir, o texto o un número directamente. Si queremos escribir un mensaje que incluya el número y el texto, tenemos que poner **un array de strings**: `error(['El algoritmo no converge en ' num2str(nl.maxit) ' iteraciones.'])`, precisamente con el `[]`. En `title` sí hay que separarlo por comas, en `error` y `disp` parece que no.
+- Click en los números de línea en Matlab posibilita crear un punto de stop de correr el código que permite ir ejecutando poco a poco desde ahí e ir viendo qué se ha ido declarando.
+- 
 ---
 ### Ideas/comentarios:
 
@@ -37,3 +41,5 @@
 - Para las derivadas primera y segunda hay distintas aproximaciones: podemos hacerlo en i+1 e i, en i-1 e i (de primer orden, lo primero que se ve) o en i-1, i e i+1 (esto son aproximaciones de segundo orden: i-1 e i+1 para la derivada).
 - Implementar diferencias finitas hace posible escribir el problema como una ecuación en diferencias (i.e. una ecuación que involucra y_i-1, y_i, y_i+1,, etc.) cuya resolución viene de resolver un sistema matricial (pues al final tenemos un conjunto de ecuaciones lineales).
 - Muy interesante este
+- Testear código vale dinero. Por eso hay que usarlo lo más posible antes de cambiarlo.
+- 
