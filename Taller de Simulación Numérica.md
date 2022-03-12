@@ -42,4 +42,4 @@
 - Implementar diferencias finitas hace posible escribir el problema como una ecuación en diferencias (i.e. una ecuación que involucra y_i-1, y_i, y_i+1,, etc.) cuya resolución viene de resolver un sistema matricial (pues al final tenemos un conjunto de ecuaciones lineales).
 - Muy interesante este
 - Testear código vale dinero. Por eso hay que usarlo lo más posible antes de cambiarlo.
-- 
+- fewhtrhdf
