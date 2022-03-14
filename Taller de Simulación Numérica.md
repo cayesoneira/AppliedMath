@@ -15,6 +15,9 @@
 - Empezamos declarando la función anónima `sol = @(x) exp(x) + cos(x)`, ahora avisamos que *x* es simbólica: `syms x`, acto seguido, sustituyendo en la función anónima la variable simbólica lo que tenemos es precisamente una función simbólica que se puede derivar simbólicamente: `diff(sol(x),x)`, ahora convertimos esta función simbólica en una función anónima que denotamos como *dsol*: `dsol = matlabFunction(diff(sol(x),x))`. Ya podemos crear un vector de ordenadas simplemente haciendo `ye = sol(xh)`.
 - Cuando ponemos un `disp` o un `error` lo que ponemos en principio es `error('El algoritmo no converge en iteraciones.')` o quizá `error(nl.maxit)`, es decir, o texto o un número directamente. Si queremos escribir un mensaje que incluya el número y el texto, tenemos que poner **un array de strings**: `error(['El algoritmo no converge en ' num2str(nl.maxit) ' iteraciones.'])`, precisamente con el `[]`. En `title` sí hay que separarlo por comas, en `error` y `disp` parece que no.
 - Click en los números de línea en Matlab posibilita crear un punto de stop de correr el código que permite ir ejecutando poco a poco desde ahí e ir viendo qué se ha ido declarando.
+- `[a, b, c, d] = deal(1, 2, 3, 4)` sirve para asignar en una sola línea lo que sería `a = 1, b = 2, c = 3, d= 4`.
+- `ode45` resuelve un sistema de ecuaciones diferenciales por métodos de Runge Kutta de orden 4 y 5.
+- Quizá la forma más cómoda de poner varias figuras juntas: `subplot`.
 - 
 ---
 ### Ideas/comentarios:
@@ -42,4 +45,6 @@
 - Implementar diferencias finitas hace posible escribir el problema como una ecuación en diferencias (i.e. una ecuación que involucra y_i-1, y_i, y_i+1,, etc.) cuya resolución viene de resolver un sistema matricial (pues al final tenemos un conjunto de ecuaciones lineales).
 - Muy interesante este
 - Testear código vale dinero. Por eso hay que usarlo lo más posible antes de cambiarlo.
-- fewhtrhdf
+- Ecuaciones diferenciales rígidas (*stiff*) y no rígidas (*non-stiff*): un caso, según Fran, en el que física y métodos numéricos se dan la mano de una forma especial: los *non-stiff* son aquellos que requerirían un paso atento de una iteración a otra por tratarse de modelos de variación muy súbita, y así la física que describen. Los *non-stiff* son mucho más caros por tener que ser más atentos  (por ejemplo con paso variable): los *stiff*, sin embargo, son suficientemente estables y sencillos como para aplicar el mismo método a toda la resolución del problema.
+- 
+- 
