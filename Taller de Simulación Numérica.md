@@ -46,5 +46,5 @@
 - Muy interesante este
 - Testear código vale dinero. Por eso hay que usarlo lo más posible antes de cambiarlo.
 - Ecuaciones diferenciales rígidas (*stiff*) y no rígidas (*non-stiff*): un caso, según Fran, en el que física y métodos numéricos se dan la mano de una forma especial: los *non-stiff* son aquellos que requerirían un paso atento de una iteración a otra por tratarse de modelos de variación muy súbita, y así la física que describen. Los *non-stiff* son mucho más caros por tener que ser más atentos  (por ejemplo con paso variable): los *stiff*, sin embargo, son suficientemente estables y sencillos como para aplicar el mismo método a toda la resolución del problema.
-- 
+- Aún no alcanzo a comprender por qué, dado que soy neófito en Elementos Finitos, pero al parecer ser puede hacer con polígonos de tantos lados como se quiera.
 - 
