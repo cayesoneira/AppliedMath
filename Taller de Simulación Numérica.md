@@ -24,7 +24,13 @@
 - Dice Fran que FEM en varias dimensiones es el mejor recurso en la actualidad para resolver EDPs, de ahí su interés para nuestro estudio.
 - COMSOL nació como PDETool de Matlab, dice Fran.
 - La gran ventaja de los FEM frente a los método de diferencias finitas es que en 2D y 3D necesitamos mallados tremendamente regulares, pues la ecuación fundamental que permite crear la matriz proviene de una forma de aproximar las derivadas y juega un papel clave el tamaño de los intervalos, etc. En FEM, sin embargo, las regiones son de tamaño arbitrario: esto permite ahorrar una de tiempo de cálculo enorme al centrarnos en las regiones que nos interesan.
-- 
+- Tratamos de cambiar la ecuación diferencial original por una ecuación integral, lo que se denomina formulación débil, para estar en las hipótesis de Lax-Milgram: un teorema que involucra, de Hilbert, condiciones de existencia de solución para dicho problema. Una especie de *podemos encontrar un elemento ortogonal*. Y esto solo es posible en el lenguaje de integrales, etc., por representar productos escalares o normas.
+- The Finite Element Method: Its Basis and Fundamentals by Olek C Zienkiewicz (Author), Robert L Taylor (Author) y J.Z. Zhu (Author). Según Fran, la biblia de los Elementos Finitos.
+- **Formas de escribir la condición Dirichlet en FEM.** *Bloqueo por sustitución*: cambia muchísimos elementos de la matriz, pero mantiene la estructura. *Bloqueo por pivote*: cambia el mínimo número de elementos de la matriz, pero puede estropear el número de condicionamiento. *Bloqueo por condensación*: no solo modifica los valores de la matriz, sino también la estructura.
+- A partir de FEM cuadrático el número de nodos ya es más grande estrictamente que el número de vértices de la malla.
+- Hay dos formas en FEM de *refinar* la resolución: aumentar el grado y estrechar el tamaño del elemento finito, i.e. hacer más fina la malla. Se denominan *métodos hk*.
+- Estudiar la matriz del FEM puede ser útil antes de resolver: puede ser útil calcular los autovalores más grandes y quitarle a dicha matriz los cachos que no involucren dichos autovalores. Son la familia de lo *métodos de orden reducido*, muy relacionado también con los métodos de *Singular Value Decomposition (SVD)*.
+-  
 ---
 ### Ideas/comentarios:
 
