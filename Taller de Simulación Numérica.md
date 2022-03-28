@@ -19,18 +19,7 @@
 - `ode45` resuelve un sistema de ecuaciones diferenciales por métodos de Runge Kutta de orden 4 y 5.
 - Quizá la forma más cómoda de poner varias figuras juntas: `subplot`.
 - `sparse`hace matrices de ceros.
-- El método de diferencias finitas se basa únicamente en plantear un sistema de ecuaciones sobre el vector solución con la información de cómo derivar numéricamente para que converja a la derivada.
-- Las condiciones de contorno Robin para el caso de la ecuación del calor tienen perfecto sentido en un contexto de difusión del calor en el borde con dependencia de la temperatura ambiente. Es decir, que, interpretada, esta condición tiene sentido física satisfactorio.
-- Dice Fran que FEM en varias dimensiones es el mejor recurso en la actualidad para resolver EDPs, de ahí su interés para nuestro estudio.
-- COMSOL nació como PDETool de Matlab, dice Fran.
-- La gran ventaja de los FEM frente a los método de diferencias finitas es que en 2D y 3D necesitamos mallados tremendamente regulares, pues la ecuación fundamental que permite crear la matriz proviene de una forma de aproximar las derivadas y juega un papel clave el tamaño de los intervalos, etc. En FEM, sin embargo, las regiones son de tamaño arbitrario: esto permite ahorrar una de tiempo de cálculo enorme al centrarnos en las regiones que nos interesan.
-- Tratamos de cambiar la ecuación diferencial original por una ecuación integral, lo que se denomina formulación débil, para estar en las hipótesis de Lax-Milgram: un teorema que involucra, de Hilbert, condiciones de existencia de solución para dicho problema. Una especie de *podemos encontrar un elemento ortogonal*. Y esto solo es posible en el lenguaje de integrales, etc., por representar productos escalares o normas.
-- The Finite Element Method: Its Basis and Fundamentals by Olek C Zienkiewicz (Author), Robert L Taylor (Author) y J.Z. Zhu (Author). Según Fran, la biblia de los Elementos Finitos.
-- **Formas de escribir la condición Dirichlet en FEM.** *Bloqueo por sustitución*: cambia muchísimos elementos de la matriz, pero mantiene la estructura. *Bloqueo por pivote*: cambia el mínimo número de elementos de la matriz, pero puede estropear el número de condicionamiento. *Bloqueo por condensación*: no solo modifica los valores de la matriz, sino también la estructura.
-- A partir de FEM cuadrático el número de nodos ya es más grande estrictamente que el número de vértices de la malla.
-- Hay dos formas en FEM de *refinar* la resolución: aumentar el grado y estrechar el tamaño del elemento finito, i.e. hacer más fina la malla. Se denominan *métodos hk*.
-- Estudiar la matriz del FEM puede ser útil antes de resolver: puede ser útil calcular los autovalores más grandes y quitarle a dicha matriz los cachos que no involucren dichos autovalores. Son la familia de lo *métodos de orden reducido*, muy relacionado también con los métodos de *Singular Value Decomposition (SVD)*.
--  
+-  `mesher` es una función para crear la malla.
 ---
 ### Ideas/comentarios:
 
@@ -59,4 +48,15 @@
 - Testear código vale dinero. Por eso hay que usarlo lo más posible antes de cambiarlo.
 - Ecuaciones diferenciales rígidas (*stiff*) y no rígidas (*non-stiff*): un caso, según Fran, en el que física y métodos numéricos se dan la mano de una forma especial: los *non-stiff* son aquellos que requerirían un paso atento de una iteración a otra por tratarse de modelos de variación muy súbita, y así la física que describen. Los *non-stiff* son mucho más caros por tener que ser más atentos  (por ejemplo con paso variable): los *stiff*, sin embargo, son suficientemente estables y sencillos como para aplicar el mismo método a toda la resolución del problema.
 - Aún no alcanzo a comprender por qué, dado que soy neófito en Elementos Finitos, pero al parecer ser puede hacer con polígonos de tantos lados como se quiera.
+- El método de diferencias finitas se basa únicamente en plantear un sistema de ecuaciones sobre el vector solución con la información de cómo derivar numéricamente para que converja a la derivada.
+- Las condiciones de contorno Robin para el caso de la ecuación del calor tienen perfecto sentido en un contexto de difusión del calor en el borde con dependencia de la temperatura ambiente. Es decir, que, interpretada, esta condición tiene sentido física satisfactorio.
+- Dice Fran que FEM en varias dimensiones es el mejor recurso en la actualidad para resolver EDPs, de ahí su interés para nuestro estudio.
+- COMSOL nació como PDETool de Matlab, dice Fran.
+- La gran ventaja de los FEM frente a los método de diferencias finitas es que en 2D y 3D necesitamos mallados tremendamente regulares, pues la ecuación fundamental que permite crear la matriz proviene de una forma de aproximar las derivadas y juega un papel clave el tamaño de los intervalos, etc. En FEM, sin embargo, las regiones son de tamaño arbitrario: esto permite ahorrar una de tiempo de cálculo enorme al centrarnos en las regiones que nos interesan.
+- Tratamos de cambiar la ecuación diferencial original por una ecuación integral, lo que se denomina formulación débil, para estar en las hipótesis de Lax-Milgram: un teorema que involucra, de Hilbert, condiciones de existencia de solución para dicho problema. Una especie de *podemos encontrar un elemento ortogonal*. Y esto solo es posible en el lenguaje de integrales, etc., por representar productos escalares o normas.
+- The Finite Element Method: Its Basis and Fundamentals by Olek C Zienkiewicz (Author), Robert L Taylor (Author) y J.Z. Zhu (Author). Según Fran, la biblia de los Elementos Finitos.
+- **Formas de escribir la condición Dirichlet en FEM.** *Bloqueo por sustitución*: cambia muchísimos elementos de la matriz, pero mantiene la estructura. *Bloqueo por pivote*: cambia el mínimo número de elementos de la matriz, pero puede estropear el número de condicionamiento. *Bloqueo por condensación*: no solo modifica los valores de la matriz, sino también la estructura.
+- A partir de FEM cuadrático el número de nodos ya es más grande estrictamente que el número de vértices de la malla.
+- Hay dos formas en FEM de *refinar* la resolución: en primer lugar, aumentar el grado; en segundo lugar, estrechar el tamaño del elemento finito, i.e. hacer más fina la malla. Se denominan *métodos hk* a los que van cambiando estos valores de forma óptima.
+- Estudiar la matriz del FEM puede ser útil antes de resolver: puede ser útil calcular los autovalores más grandes y quitarle a dicha matriz los cachos que no involucren dichos autovalores. Son la familia de lo *métodos de orden reducido*, muy relacionado también con los métodos de *Singular Value Decomposition (SVD)*.
 - 
