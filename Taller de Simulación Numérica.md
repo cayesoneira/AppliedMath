@@ -18,6 +18,12 @@
 - `[a, b, c, d] = deal(1, 2, 3, 4)` sirve para asignar en una sola línea lo que sería `a = 1, b = 2, c = 3, d= 4`.
 - `ode45` resuelve un sistema de ecuaciones diferenciales por métodos de Runge Kutta de orden 4 y 5.
 - Quizá la forma más cómoda de poner varias figuras juntas: `subplot`.
+- `sparse`hace matrices de ceros.
+- El método de diferencias finitas se basa únicamente en plantear un sistema de ecuaciones sobre el vector solución con la información de cómo derivar numéricamente para que converja a la derivada.
+- Las condiciones de contorno Robin para el caso de la ecuación del calor tienen perfecto sentido en un contexto de difusión del calor en el borde con dependencia de la temperatura ambiente. Es decir, que, interpretada, esta condición tiene sentido física satisfactorio.
+- Dice Fran que FEM en varias dimensiones es el mejor recurso en la actualidad para resolver EDPs, de ahí su interés para nuestro estudio.
+- COMSOL nació como PDETool de Matlab, dice Fran.
+- La gran ventaja de los FEM frente a los método de diferencias finitas es que en 2D y 3D necesitamos mallados tremendamente regulares, pues la ecuación fundamental que permite crear la matriz proviene de una forma de aproximar las derivadas y juega un papel clave el tamaño de los intervalos, etc. En FEM, sin embargo, las regiones son de tamaño arbitrario: esto permite ahorrar una de tiempo de cálculo enorme al centrarnos en las regiones que nos interesan.
 - 
 ---
 ### Ideas/comentarios:
