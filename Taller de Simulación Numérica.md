@@ -18,8 +18,19 @@
 - `[a, b, c, d] = deal(1, 2, 3, 4)` sirve para asignar en una sola línea lo que sería `a = 1, b = 2, c = 3, d= 4`.
 - `ode45` resuelve un sistema de ecuaciones diferenciales por métodos de Runge Kutta de orden 4 y 5.
 - Quizá la forma más cómoda de poner varias figuras juntas: `subplot`.
-- `sparse`hace matrices de ceros.
+- `spalloc`hace matrices de ceros, lo que se llaman *matrices sparse* o *matrices dispersas*.
 -  `mesher` es una función para crear la malla.
+-  `%#ok<NBRAK>` evita que salte un aviso de potencial error de Matlab. Tiene interés cuando el autor es consciente de este comportamiento y está seguro de que no es un error.
+-  `nnz = 3*m.nnod-2 + (m.deg==2)*2*m.nel;` en esta línea puede verse cómo se usa una condición *if* dentro de la propia línea: si (m.deg==2) es cierto, vale 1, si es falso, vale 0. Y esos números entran en los cálculos. Impresionante esto.
+-  `%#ok<SPRIX>` sirve para
+-  `switch m.deg
+    case 1
+        P  = @(x) [1-x, x];
+        DP = @(x) [ -1, 1];
+    case 2
+        P  = @(x) [2*x^2-3*x+1, 4*x*(1-x), 2*x*(x-1/2)];
+        DP = @(x) [      4*x-3,     4-8*x,       4*x-1];
+end`
 ---
 ### Ideas/comentarios:
 
@@ -59,4 +70,8 @@
 - A partir de FEM cuadrático el número de nodos ya es más grande estrictamente que el número de vértices de la malla.
 - Hay dos formas en FEM de *refinar* la resolución: en primer lugar, aumentar el grado; en segundo lugar, estrechar el tamaño del elemento finito, i.e. hacer más fina la malla. Se denominan *métodos hk* a los que van cambiando estos valores de forma óptima.
 - Estudiar la matriz del FEM puede ser útil antes de resolver: puede ser útil calcular los autovalores más grandes y quitarle a dicha matriz los cachos que no involucren dichos autovalores. Son la familia de lo *métodos de orden reducido*, muy relacionado también con los métodos de *Singular Value Decomposition (SVD)*.
+- Los cálculos numéricos profesionales (ejecución real de FEM en ambiente de empresa, etc.) necesitan un tratamiento local: así es posible repartir el problema entre varios ordenadores y resolverlo así más rápido. Se hace en paralelo el cálculo.
+- Naturalmente, no podemos permitirnos perder orden de convergencia del método por una etapa como la integración numérica en FEM. Claro que tampoco podemos permitirnos una calidad inmensa pues la etapa limitante será otra y, al mismo tiempo, no queremos que tarde un tiempo excesivo. Precisamente el interés del tratamiento local del método es, como acabamos de decir, paralelizar y ahorrar tiempo.
+- En realidad es bastante impresionante y potente la opción *function* de Matlab: simplemente poder crear tu función de fácil uso y con memoria aislada, etc.
+- Fran: *El FEM es el caso final del análisis numérico: todas las disciplinas numéricas modernas surgen a partir de él*.
 - 
