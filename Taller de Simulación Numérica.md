@@ -1,5 +1,4 @@
-### Comandos de interés:
-
+# Comandos de interés:
 - `errorbar(abscisa,ordenada,vector de errores);`
 - `./` divide componente a componente: es el efecto del punto delante del signo de operación
 - `plot(h(1,end-1),p)` si p mide una posición más que h; cogemos hasta la penúltima componente de h
@@ -20,20 +19,17 @@
 - Quizá la forma más cómoda de poner varias figuras juntas: `subplot`.
 - `spalloc`hace matrices de ceros, lo que se llaman *matrices sparse* o *matrices dispersas*.
 -  `mesher` es una función para crear la malla.
--  `%#ok<NBRAK>` evita que salte un aviso de potencial error de Matlab. Tiene interés cuando el autor es consciente de este comportamiento y está seguro de que no es un error.
+-  `%#ok<NBRAK>`o `%#ok<SPRIX>` evita que salte un aviso de potencial error de Matlab. Tiene interés cuando el autor es consciente de este comportamiento y está seguro de que no es un error. Cambia el nombre según el tipo de aviso.
 -  `nnz = 3*m.nnod-2 + (m.deg==2)*2*m.nel;` en esta línea puede verse cómo se usa una condición *if* dentro de la propia línea: si (m.deg==2) es cierto, vale 1, si es falso, vale 0. Y esos números entran en los cálculos. Impresionante esto.
--  `%#ok<SPRIX>` sirve para
--  `switch m.deg
-    case 1
-        P  = @(x) [1-x, x];
-        DP = @(x) [ -1, 1];
-    case 2
-        P  = @(x) [2*x^2-3*x+1, 4*x*(1-x), 2*x*(x-1/2)];
-        DP = @(x) [      4*x-3,     4-8*x,       4*x-1];
-end`
+-  `%#ok<SPRIX>` sirve para 
+-  `P  = @(x) [1-x, x]; DP = @(x) [ -1, 1];`he aquí la esencia del FEM.
+-  `varargin` simplemente refiere a una celda, una *cell*, que es un hueco que se puede llenar con números, letras, char, etc., es parecido a las listas de Python: el hueco más general y que admite todo tipo de clases de elementos, sean números, vectores, strings... Si se usa como argumento de una *function* se espera cualquier cosa: `function u = ef(F, m, bc, qd, varargin)` significa que podemos llamarla como `ef(F, m, bc, qd, @df)` o como `ef(F, m, bc, qd, 2)` o como `ef(F, m, bc, qd, 'patata')`.
+-  Las listas etc. se trabajan con llaves `{}`.
+-  
+-  
 ---
-### Ideas/comentarios:
 
+# Ideas/comentarios:
 - Condiciones de contorno Dirichlet (fijar la solución), Neumann (fijar las derivadas de la solución), Robin (combinación lineal de los valores de una función y los valores de su derivada sobre la frontera del dominio), mixtas[?] (combinación cualquiera)
 - Por ahora la asignatura parece ir poco a poco, explicando matlab desde la base (las clases son programación guiada con la explicación de los comandos).
 - para un pc de 64 bits el eps de la maq es `2.22e-16`
@@ -61,6 +57,8 @@ end`
 - Aún no alcanzo a comprender por qué, dado que soy neófito en Elementos Finitos, pero al parecer ser puede hacer con polígonos de tantos lados como se quiera.
 - El método de diferencias finitas se basa únicamente en plantear un sistema de ecuaciones sobre el vector solución con la información de cómo derivar numéricamente para que converja a la derivada.
 - Las condiciones de contorno Robin para el caso de la ecuación del calor tienen perfecto sentido en un contexto de difusión del calor en el borde con dependencia de la temperatura ambiente. Es decir, que, interpretada, esta condición tiene sentido física satisfactorio.
+
+### FEM
 - Dice Fran que FEM en varias dimensiones es el mejor recurso en la actualidad para resolver EDPs, de ahí su interés para nuestro estudio.
 - COMSOL nació como PDETool de Matlab, dice Fran.
 - La gran ventaja de los FEM frente a los método de diferencias finitas es que en 2D y 3D necesitamos mallados tremendamente regulares, pues la ecuación fundamental que permite crear la matriz proviene de una forma de aproximar las derivadas y juega un papel clave el tamaño de los intervalos, etc. En FEM, sin embargo, las regiones son de tamaño arbitrario: esto permite ahorrar una de tiempo de cálculo enorme al centrarnos en las regiones que nos interesan.
@@ -74,4 +72,10 @@ end`
 - Naturalmente, no podemos permitirnos perder orden de convergencia del método por una etapa como la integración numérica en FEM. Claro que tampoco podemos permitirnos una calidad inmensa pues la etapa limitante será otra y, al mismo tiempo, no queremos que tarde un tiempo excesivo. Precisamente el interés del tratamiento local del método es, como acabamos de decir, paralelizar y ahorrar tiempo.
 - En realidad es bastante impresionante y potente la opción *function* de Matlab: simplemente poder crear tu función de fácil uso y con memoria aislada, etc.
 - Fran: *El FEM es el caso final del análisis numérico: todas las disciplinas numéricas modernas surgen a partir de él*.
+- En FEM, *x* es la posición global en la malla, la coordenada Euleriana, mientras que *x^* (equis tilde) es la posición relativa dentro del elemento finito, lo que se denomina coordenada lagrangiana.
+- Fran: *Hemos llegado al final del juego (el último gran método numérico, FEM), pero no es el final de los juegos*.
+- En FEM, la función *F_k* sirve para hacer el cambio de variable desde la x (euleriana) a x tilde (lagrangiana), donde están escritos los polinomios de un elemento finito en general.
+- Un pivote, en general, es un valor que se prioriza numéricamente alrededor del cual vamos a calcular. Sea multiplicándolo por un número muy grande para darle prioridad, sea haciendo nulo el resto, sea ignorándolos, etc.
+- Hay varios ámbitos en los cuales uno puede optimizar el tiempo: tiempo de programación (usar fsolve, por ejemplo, en lugar de programar un RK4 o algo así) o tiempo de computación (sabiendo que fsolve sale caro computacionalmente, programar un RK4 quizá no sea desmesurado). Todo depende, por supuesto, de qué queramos hacer.
+- Fran: *No sabéis cuántos matrimonios ha salvado que se pueda trabajar así de rápido con las matrices sparse en Matlab*.
 - 
