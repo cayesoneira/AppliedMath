@@ -78,4 +78,14 @@
 - Un pivote, en general, es un valor que se prioriza numéricamente alrededor del cual vamos a calcular. Sea multiplicándolo por un número muy grande para darle prioridad, sea haciendo nulo el resto, sea ignorándolos, etc.
 - Hay varios ámbitos en los cuales uno puede optimizar el tiempo: tiempo de programación (usar fsolve, por ejemplo, en lugar de programar un RK4 o algo así) o tiempo de computación (sabiendo que fsolve sale caro computacionalmente, programar un RK4 quizá no sea desmesurado). Todo depende, por supuesto, de qué queramos hacer.
 - Fran: *No sabéis cuántos matrimonios ha salvado que se pueda trabajar así de rápido con las matrices sparse en Matlab*.
+- La función test *v* de FEM se introduce cuando buscamos escribir el problema en la formulación débil: al integrar por Gauss aparece. Después, con un poco de trajineo, somos capaces de quitarla del medio (al fin y al cabo la formulación débil es para toda función test v).
+- Todo el formalismo de la escritura débil de estos problemas viene de la teoría de Espacios de Hilbert.
+- En FEM, la formulación débil es para toda función test v: esto significa que también tiene que cumplirse para una cierta v test que elijamos. Aquí es donde entra la aproximación de Galerkin y la forma muy particular de base local polinómica con la que aproximamos dicha v test y que permite escribir el problema de una forma muy concentrada (sparse matrix etc.).
+- Para el planteamiento del problema de FEM tenemos dos teoremas clave: Lax-Milgram para existencia y unicidad, Cea para la calidad de la aproximación (el orden, vaya).
+- En FEM 2D las esquinas de los dominios, incluso en el cuadrado, no funcionan demasiado bien...
+- Normalmente la numeración de los elementos finitos se hace en el sentido de las agujas del reloj.
+- Otra fuente de error en FEM: la aproximación del dominio, pues en ocasiones (arcos de circuenferencia, etc.) no es perfecta.
+- Tanto triángulos como rectángulos se pueden usar para mallar.
+- Dos elementos finitos pueden tener en común: caras (solo 3D), aristas (solo 2D), vértices o nada. No es posible que estén a caballo entre estas opciones. Y esto es una triangulación como hacemos en Topología de Superficies tal cual.
+- Mallas adaptativas: cuanto más grande es el gradiente en una región, más pequeño interesa hacer el elemento finito para que la norma de Sobolev siga siendo pequeña.
 - 
