@@ -88,4 +88,7 @@
 - Tanto triángulos como rectángulos se pueden usar para mallar.
 - Dos elementos finitos pueden tener en común: caras (solo 3D), aristas (solo 2D), vértices o nada. No es posible que estén a caballo entre estas opciones. Y esto es una triangulación como hacemos en Topología de Superficies tal cual.
 - Mallas adaptativas: cuanto más grande es el gradiente en una región, más pequeño interesa hacer el elemento finito para que la norma de Sobolev siga siendo pequeña.
+- Dicen los apuntes: **Si una geometría tiene varios materiales se recomienda que cada elemento quede completamente contenido en uno de ellos**.
+- Hay formas de medir la calidad de la malla, como por ejemplo, dentro de un elemento finito, la razón entre radios de las circunferencias inscritas y circunscritas. Un valor muy alto de ese cociente señala la cercanía de un elemento finito a ser degenerado.
+- Fases del trabajo de modelado: preproceso (mallado, elección del sistema y condiciones de contorno, etc.), simulación (resolución), posproceso (análisis y visualización de resultados).
 - 
