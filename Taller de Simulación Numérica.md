@@ -91,4 +91,7 @@
 - Dicen los apuntes: **Si una geometría tiene varios materiales se recomienda que cada elemento quede completamente contenido en uno de ellos**.
 - Hay formas de medir la calidad de la malla, como por ejemplo, dentro de un elemento finito, la razón entre radios de las circunferencias inscritas y circunscritas. Un valor muy alto de ese cociente señala la cercanía de un elemento finito a ser degenerado.
 - Fases del trabajo de modelado: preproceso (mallado, elección del sistema y condiciones de contorno, etc.), simulación (resolución), posproceso (análisis y visualización de resultados).
+- Más importante que replicar los resultados de un cierto benchmark (que dependen en algunos detalles del propio PC), lo importante a la hora de ver la implementación de un algoritmo es que el orden del mismo se corresponda, es decir, que se replique la gráfica de orden vs anchura de los elementos.
+- El épsilon de la máquina puede compararse literalmente como un ruido blanco, un fondo donde no se puede trabajar exactamente con ciertos valores.
+- De nuevo, un caso donde el límite de la matemática se ve interrumpido por el límite numérico.
 - 
