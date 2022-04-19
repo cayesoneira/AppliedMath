@@ -25,6 +25,8 @@
 -  `P  = @(x) [1-x, x]; DP = @(x) [ -1, 1];`he aquí la esencia del FEM.
 -  `varargin` simplemente refiere a una celda, una *cell*, que es un hueco que se puede llenar con números, letras, char, etc., es parecido a las listas de Python: el hueco más general y que admite todo tipo de clases de elementos, sean números, vectores, strings... Si se usa como argumento de una *function* se espera cualquier cosa: `function u = ef(F, m, bc, qd, varargin)` significa que podemos llamarla como `ef(F, m, bc, qd, @df)` o como `ef(F, m, bc, qd, 2)` o como `ef(F, m, bc, qd, 'patata')`.
 -  Las listas etc. se trabajan con llaves `{}`.
+-  En la implementación de FEM se puede trabajar con funciones características en la estructura F, pero, a diferencia de hacer subregiones de mallado, esto no permite cambiar el número de mallas en cada región y solo en esa. Esto podría ser interesante si algún material, por ejemplo, requiere por sus características cálculos más precisos.
+-  Qué interesante el funcionamiento de los valores lógicos de Matlab: `true` y `false` son valores lógicos y así son interpretados, pero si lo introduces en una operación, por ejemplo `true*2` el resultado es `2`: Matlab lo interpreta como un `1` si lo utilizamos en cálculos.
 -  
 -  
 ---
@@ -95,4 +97,5 @@
 - El épsilon de la máquina puede compararse literalmente como un ruido blanco, un fondo donde no se puede trabajar exactamente con ciertos valores.
 - De nuevo, un caso donde el límite de la matemática se ve interrumpido por el límite numérico.
 - Al parecer, es un convenio a nivel mundial escribir un problema de valor inicial escribiendo la expresión de la ecuación *en* (*in*) el dominio pero la expresión de las condiciones de contorno *sobre* (*on*) la frontera. Peregrina lo dijo con bastante seriedad.
+- En el método de Newton, cuando queremos tomar un valor para la siguiente iteración, interpolamos (linealmente en FEM de grado 1 y con parábolas en FEM de grado) en lugar de tomar el valor más cercano o métodos más complejos porque así cometemos el mismo error que el propio FEM.
 - 
