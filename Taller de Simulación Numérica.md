@@ -27,7 +27,7 @@
 -  Las listas etc. se trabajan con llaves `{}`.
 -  En la implementación de FEM se puede trabajar con funciones características en la estructura F, pero, a diferencia de hacer subregiones de mallado, esto no permite cambiar el número de mallas en cada región y solo en esa. Esto podría ser interesante si algún material, por ejemplo, requiere por sus características cálculos más precisos.
 -  Qué interesante el funcionamiento de los valores lógicos de Matlab: `true` y `false` son valores lógicos y así son interpretados, pero si lo introduces en una operación, por ejemplo `true*2` el resultado es `2`: Matlab lo interpreta como un `1` si lo utilizamos en cálculos.
--  
+-  `pdesurf` es capaz, con puntos y aristas como argumento, de saber si le estamos dando una solución por nodos o por vértices al representar soluciones del FEM.
 -  
 ---
 
