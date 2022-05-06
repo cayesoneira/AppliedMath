@@ -98,4 +98,7 @@
 - De nuevo, un caso donde el límite de la matemática se ve interrumpido por el límite numérico.
 - Al parecer, es un convenio a nivel mundial escribir un problema de valor inicial escribiendo la expresión de la ecuación *en* (*in*) el dominio pero la expresión de las condiciones de contorno *sobre* (*on*) la frontera. Peregrina lo dijo con bastante seriedad.
 - En el método de Newton, cuando queremos tomar un valor para la siguiente iteración, interpolamos (linealmente en FEM de grado 1 y con parábolas en FEM de grado) en lugar de tomar el valor más cercano o métodos más complejos porque así cometemos el mismo error que el propio FEM.
+- Cuando aproximamos  en H1(0,1), lo mejor que conseguimos en general es O(h^2).
+- Si la ecuación diferencial es simétrica, la matriz elemental es simétrica.
+- O(h^2), es decir, *'O' grande*, significa que el límite del cociente con h^2 es un valor real, pero no necesariamente nulo. Eso es o(h^2), es decir, *'o' pequeña*.
 - 
