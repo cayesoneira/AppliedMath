@@ -102,4 +102,3 @@
 - Cuando aproximamos  en H1(0,1), lo mejor que conseguimos en general es O(h^2).
 - Si la ecuación diferencial es simétrica, la matriz elemental es simétrica.
 - O(h^2), es decir, *'O' grande*, significa que el límite del cociente con h^2 es un valor real, pero no necesariamente nulo. Eso es o(h^2), es decir, *'o' pequeña*.
-- 
